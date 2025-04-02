@@ -1,0 +1,18 @@
+<div class="etape-detail" *ngIf="etape">
+    <h2>Etape Details</h2>
+    <p><strong>Nom:</strong> {{ etape.nom }}</p>
+    
+    <h3>Phases</h3>
+    <ul>
+      <li *ngFor="let phase of etape.phases">
+        <p><strong>Phase Name:</strong> {{ phase.nom }}</p>
+        <p><strong>Assigned To:</strong> {{ phase.assignedTo }}</p>
+        <p><strong>Category:</strong> {{ phase.category }}</p>
+        <p><strong>Progression:</strong> {{ phase.progression }}%</p>
+        <p><strong>Duration (days):</strong> {{ phase.dureeJours }}</p>
+        <p><strong>Start Date:</strong> {{ phase.dateDebut }}</p>
+        <p><strong>End Date:</strong> {{ phase.dateFin }}</p>
+      </li>
+    </ul>
+  </div>
+  

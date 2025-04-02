@@ -1,0 +1,12 @@
+<div class="form-wrapper">
+  <h2>Modifier la facture</h2>
+  <form (ngSubmit)="updateFacture()" #form="ngForm" class="form" ngForm>
+    <input type="number" placeholder="Montant total" [(ngModel)]="facture.montantTotal" name="montantTotal" required>
+    <input type="number" placeholder="Montant payé" [(ngModel)]="facture.montantPaye" name="montantPaye">
+    <input type="date" placeholder="Date émission" [(ngModel)]="facture.dateEmission" name="dateEmission" required>
+    <input type="date" placeholder="Date échéance" [(ngModel)]="facture.dateEcheance" name="dateEcheance" required>
+    <input type="text" placeholder="Statut" [(ngModel)]="facture.statut" name="statut" required>
+    <input type="number" placeholder="ID Projet" [(ngModel)]="facture.projectId" name="projectId" required>
+    <button class="btn" type="submit">Mettre à jour</button>
+  </form>
+</div>

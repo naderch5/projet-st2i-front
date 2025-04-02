@@ -1,0 +1,67 @@
+<div class="h-screen w-full flex flex-col md:flex-row overflow-hidden bg-gradient-to-br from-[#e0f0ff] via-[#ffffff] to-[#ffe9ec]">
+
+  <!-- 📷 Section Gauche : Illustration (taille réduite) -->
+  <div class="hidden md:flex w-1/2 items-center justify-center">
+    <img src="assets/images/image 10.png" alt="Illustration de connexion" class="w-[70%] max-w-md drop-shadow-lg">
+  </div>
+
+  <!-- 🔐 Section Droite : Formulaire -->
+  <div class="w-full md:w-1/2 h-full flex items-center justify-center">
+    <div class="bg-white rounded-3xl shadow-2xl px-12 py-10 w-full max-w-xl border border-gray-100">
+
+      <!-- Titre -->
+      <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold text-[#004B8C]">Bienvenue 👋</h2>
+        <p class="text-sm text-gray-500 mt-2">Connectez-vous à votre compte ST2I</p>
+      </div>
+
+      <!-- Formulaire -->
+      <form (ngSubmit)="login()" #loginForm="ngForm" class="space-y-6">
+
+        <!-- Email -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Adresse Email</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            placeholder="exemple@email.com"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2674f2] focus:border-[#2674f2]"
+          />
+        </div>
+
+        <!-- Mot de passe -->
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-700">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="••••••••"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f44336] focus:border-[#f44336]"
+          />
+        </div>
+
+        <!-- Bouton -->
+        <button
+          type="submit"
+          [disabled]="loading"
+          class="w-full bg-gradient-to-r from-[#007bff] via-[#0056b3] to-[#d32f2f] text-white py-2 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105 flex justify-center items-center"
+        >
+          <span *ngIf="!loading" class="font-semibold tracking-wide">🚀 Se connecter</span>
+          <svg *ngIf="loading" class="animate-spin h-5 w-5 text-white ml-2" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="mt-8 text-center text-xs text-gray-400">
+        © 2025 ST2I Groupe ST2DI - Tous droits réservés
+      </div>
+    </div>
+  </div>
+</div>

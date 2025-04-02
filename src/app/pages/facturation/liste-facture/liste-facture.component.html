@@ -1,0 +1,53 @@
+<div class="p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Liste des Factures</h2>
+    <a routerLink="/facturation/create" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      + Ajouter
+    </a>
+  </div>
+
+  <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">#</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Montant Total</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Montant Payé</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Date Émission</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Date Échéance</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Statut</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Projet</th>
+        <th class="p-3 text-left text-sm font-semibold text-gray-700">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let f of factures; let i = index" class="border-t hover:bg-gray-50">
+        <td class="p-3">{{ i + 1 }}</td>
+        <td class="p-3">{{ f.montantTotal }} TND</td>
+        <td class="p-3">{{ f.montantPaye }} TND</td>
+        <td class="p-3">{{ f.dateEmission }}</td>
+        <td class="p-3">{{ f.dateEcheance }}</td>
+        <td class="p-3">
+          <span
+            class="px-3 py-1 rounded-full text-xs font-semibold"
+            [ngClass]="{
+              'bg-yellow-100 text-yellow-800 border border-yellow-300': f.statut === 'EN_ATTENTE',
+              'bg-green-100 text-green-800 border border-green-300': f.statut === 'PAYEE',
+              'bg-red-100 text-red-800 border border-red-300': f.statut === 'EN_RETARD'
+            }"
+          >
+            {{ f.statut === 'EN_ATTENTE' ? '⏳ En attente' : (f.statut === 'PAYEE' ? '✅ Payée' : '⚠️ En retard') }}
+          </span>
+        </td>
+        <td class="p-3">{{ f.projectId }}</td>
+        <td class="p-3 flex space-x-2">
+          <button (click)="update(f.id)" class="text-blue-600 hover:text-blue-800 text-xl" title="Modifier">
+            👁️
+          </button>
+          <button (click)="delete(f.id)" class="text-red-600 hover:text-red-800 text-xl" title="Supprimer">
+            🗑️
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

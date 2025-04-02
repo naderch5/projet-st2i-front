@@ -1,0 +1,124 @@
+<div class="p-8 bg-white rounded-lg shadow-xl max-w-5xl mx-auto mt-10">
+    <h2 class="text-3xl font-extrabold text-[#003A70] mb-8 text-center">
+      ✏️ Modifier un projet ST2I
+    </h2>
+  
+    <form (ngSubmit)="updateProject()" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  
+        <!-- CODE PROJET -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Code Projet</label>
+          <input [(ngModel)]="project.codeProjet" name="codeProjet" required type="text"
+                 placeholder="ST2I-2025-001"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- NOM PROJET -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Nom Projet</label>
+          <input [(ngModel)]="project.nomProjet" name="nomProjet" required type="text"
+                 placeholder="Nom du projet"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- CLIENT -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Client</label>
+          <input [(ngModel)]="project.client" name="client" required type="text"
+                 placeholder="Client concerné"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- CHEF DE PROJET -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Chef de Projet</label>
+          <input [(ngModel)]="project.chefProjet" name="chefProjet" required type="text"
+                 placeholder="Nom du chef de projet"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- DATES -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Date Début</label>
+          <input [(ngModel)]="project.dateDebut" name="dateDebut" required type="date"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Date Fin</label>
+          <input [(ngModel)]="project.dateFin" name="dateFin" required type="date"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- MODÈLE / TYPE -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Modèle Business</label>
+          <input [(ngModel)]="project.modeleBusiness" name="modeleBusiness" required type="text"
+                 placeholder="Modèle économique"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Type d'Engagement</label>
+          <input [(ngModel)]="project.typeEngagement" name="typeEngagement" required type="text"
+                 placeholder="Forfait / Régie..."
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- BUDGETS -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Budget Total (TND)</label>
+          <input [(ngModel)]="project.budgetTotal" name="budgetTotal" required type="number" step="0.01"
+                 placeholder="120000.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Budget Initial</label>
+          <input [(ngModel)]="project.budgetInitial" name="budgetInitial" type="number" step="0.01"
+                 placeholder="Ex: 100000.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Avenant</label>
+          <input [(ngModel)]="project.budgetAvenant" name="budgetAvenant" type="number" step="0.01"
+                 placeholder="Ex: 15000.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- PROVISIONS -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Provision Risques</label>
+          <input [(ngModel)]="project.provisionRisques" name="provisionRisques" type="number" step="0.01"
+                 placeholder="Ex: 3000.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Provision Pénalités</label>
+          <input [(ngModel)]="project.provisionPenalites" name="provisionPenalites" type="number" step="0.01"
+                 placeholder="Ex: 2500.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+  
+        <!-- MARGE -->
+        <div>
+          <label class="block font-semibold text-gray-700 mb-1">Marge Nette</label>
+          <input [(ngModel)]="project.margeNette" name="margeNette" type="number" step="0.01"
+                 placeholder="Ex: 18000.00"
+                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#003A70] focus:outline-none" />
+        </div>
+      </div>
+  
+      <!-- ✅ BOUTON DE VALIDATION -->
+      <div class="mt-6 text-center">
+        <button type="submit"
+                class="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out">
+          🔁 Mettre à jour le Projet
+        </button>
+      </div>
+    </form>
+  </div>
+  

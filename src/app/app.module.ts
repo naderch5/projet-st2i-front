@@ -3,6 +3,12 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FacturationModule } from './pages/facturation/facturation.module';
+
 
 // import { GestureConfig } from '@angular/material/core';
 import {
@@ -43,6 +49,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     LayoutModule,
     PerfectScrollbarModule,
+    FacturationModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -51,7 +58,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       }
     }),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true }),
-    RouterModule.forRoot(rootRouterConfig, { useHash: false })
+    RouterModule.forRoot(rootRouterConfig, { useHash: false }),
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [AppComponent],
   providers: [

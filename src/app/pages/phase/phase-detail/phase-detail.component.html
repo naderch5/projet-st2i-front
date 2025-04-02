@@ -1,0 +1,56 @@
+<div class="phase-detail-container">
+  <h2 class="title">
+    📌 <span>Détail des Phases de l’Étape</span>
+  </h2>
+
+  <div *ngIf="phases.length > 0; else noPhases" class="grid-container">
+    <div *ngFor="let phase of phases" class="card">
+      <h3 class="card-title">{{ phase.nom }}</h3>
+
+      <div class="card-content">
+
+        <div class="item">
+          <span class="label">👤 Affectée à :</span>
+          <span class="value">{{ phase.assignedTo }}</span>
+        </div>
+
+        <div class="item">
+          <span class="label">📂 Catégorie :</span>
+          <span class="badge" [ngClass]="getCategoryClass(phase.category)">
+            {{ phase.category }}
+          </span>
+        </div>
+
+        <div class="item progress-section">
+          <span class="label">📊 Progress :</span>
+          <div class="progress-wrapper">
+            <div class="progress-bar" [style.width.%]="phase.progression"></div>
+            <span class="progress-text">{{ phase.progression }}%</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="label">⏱️ Durée :</span>
+          <span class="value">{{ phase.dureeJours }} jours</span>
+        </div>
+
+        <div class="item">
+          <span class="label">📅 Date Début :</span>
+          <span class="value">{{ phase.dateDebut }}</span>
+        </div>
+
+        <div class="item">
+          <span class="label">📅 Date Fin :</span>
+          <span class="value">{{ phase.dateFin }}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noPhases>
+    <div class="no-data">
+      <p>❌ Aucune phase trouvée pour cette étape.</p>
+    </div>
+  </ng-template>
+</div>

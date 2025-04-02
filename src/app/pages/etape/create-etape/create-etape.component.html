@@ -1,0 +1,25 @@
+<form (ngSubmit)="createEtape()">
+    <div>
+      <label for="nom">Etape Name:</label>
+      <input type="text" id="nom" [(ngModel)]="etape.nom" name="nom" required />
+    </div>
+  
+    <!-- Phases section -->
+    <div>
+      <label for="phases">Phases:</label>
+      <div *ngFor="let phase of etape.phases; let i = index">
+        <div>
+          <label for="phaseName">Phase {{i + 1}} Name:</label>
+          <input [(ngModel)]="phase.nom" name="phaseName{{i}}" />
+        </div>
+        <div>
+          <label for="phaseCategory">Phase {{i + 1}} Category:</label>
+          <input [(ngModel)]="phase.category" name="phaseCategory{{i}}" />
+        </div>
+      </div>
+      <button type="button" (click)="addPhase()">Add Phase</button>
+    </div>
+  
+    <button type="submit">Create Etape</button>
+  </form>
+  

@@ -1,0 +1,35 @@
+<div class="p-6">
+    <h2 class="text-xl font-semibold mb-4">📝 Ajouter un projet</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Code Projet</mat-label>
+          <input matInput formControlName="codeProjet" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Nom Projet</mat-label>
+          <input matInput formControlName="nomProjet" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Client</mat-label>
+          <input matInput formControlName="client" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Budget Total</mat-label>
+          <input matInput formControlName="budgetTotal" type="number" required>
+        </mat-form-field>
+      </div>
+  
+      <div class="mt-6 flex justify-end">
+        <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">
+          💾 Enregistrer
+        </button>
+        <button mat-button class="ml-4" type="button" (click)="close()">❌ Annuler</button>
+      </div>
+    </form>
+  </div>
+  

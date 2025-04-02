@@ -1,0 +1,22 @@
+<div class="etape-list">
+    <h2>Etapes List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Phases Count</th>
+          <th>Total Duration</th>
+          <th>Average Progression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let etape of etapes">
+          <td>{{ etape.nom }}</td>
+          <td>{{ etape.phases.length }}</td>
+          <td>{{ getTotalDureeJours(etape) }}</td>
+          <td>{{ getMoyenneProgression(etape) | number:'1.0-0' }}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
